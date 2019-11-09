@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
         var openBtn : Button = findViewById(R.id.btn)
 
         openBtn.setOnClickListener{it
-            val intent = Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","54545121",null))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("sms:"+"54545121"))
+            intent.putExtra("sms_body","hellow")
             startActivity(intent)
         }
 
