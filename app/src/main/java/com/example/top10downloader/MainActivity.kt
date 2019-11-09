@@ -9,6 +9,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +21,13 @@ class MainActivity : AppCompatActivity() {
         var openBtn : Button = findViewById(R.id.btn)
 
         openBtn.setOnClickListener{it
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("sms:"+"54545121"))
-            intent.putExtra("sms_body","hellow")
-            startActivity(intent)
+            try {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
+                startActivity(intent)
+            }catch (e:Exception){
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName"))
+                startActivity(intent)
+            }
         }
 
     }
