@@ -21,13 +21,10 @@ class MainActivity : AppCompatActivity() {
         var openBtn : Button = findViewById(R.id.btn)
 
         openBtn.setOnClickListener{it
-            try {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName"))
-                startActivity(intent)
-            }catch (e:Exception){
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=$packageName"))
-                startActivity(intent)
-            }
+            val vidUri = Uri.parse("https://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
+            val videoView = findViewById<VideoView>(R.id.videoView)
+            videoView.setVideoURI(vidUri)
+            videoView.start()
         }
 
     }
