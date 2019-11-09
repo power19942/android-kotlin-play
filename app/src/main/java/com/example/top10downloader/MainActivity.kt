@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         var openBtn : Button = findViewById(R.id.btn)
 
         openBtn.setOnClickListener{it
-            val intent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
+            val intent = Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             startActivityForResult(intent,548)
         }
 
@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 548){
-            var img = data!!.extras?.get("data") as Bitmap
+            var imgUri = data?.data
             val image = findViewById<ImageView>(R.id.imageView2)
-            image.setImageBitmap(img)
+            image.setImageURI(imgUri)
         }
     }
 
