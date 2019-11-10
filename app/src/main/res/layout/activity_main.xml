@@ -6,8 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <ListView
-        android:id="@+id/list_view"
+    <FrameLayout
+        android:id="@+id/holder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/nav">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:soundEffectsEnabled="true"
+        app:menu="@menu/items">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </RelativeLayout>
